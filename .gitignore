@@ -1,0 +1,49 @@
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+build/
+bld/
+[Bb]in/
+[Oo]bj/
+msbuild.log
+msbuild.err
+msbuild.wrn
+
+# Visual Studio files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.vspscc
+*.vssscc
+.vs/
+project.lock.json
+
+# Rider
+.idea/
+
+# Visual Studio Code
+.vscode/
+
+# NuGet
+*.nupkg
+*.snupkg
+*.cache
+*.props
+packages/
+
+# Project files
+*.csproj.user
+*.vcxproj.user
+*.sqlproj.user
+
+# Mac
+.DS_Store
+
+# Linux
+*.swp
+*~
