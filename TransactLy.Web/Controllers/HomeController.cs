@@ -4,7 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using TransactLy.Web.Models;
+using TransactLy.Web.Models.ViewModels;
 
 namespace TransactLy.Web.Controllers
 {
@@ -17,7 +17,8 @@ namespace TransactLy.Web.Controllers
 
         public IActionResult About()
         {
-            ViewData["Message"] = "Your application description page.";
+            ViewData["Message"] = "Transactly. Your best friend when managing your business";
+            ViewData["Enterprise"] = "BitCompy";
 
             return View();
         }
