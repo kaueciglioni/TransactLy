@@ -1,6 +1,6 @@
 using System;
 
-namespace TransactLy.Web.Models.ViewModels
+namespace TransactLy.Models.ViewModels
 {
     public class ErrorViewModel
     {

@@ -1,32 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using TransactLy.Web.Models.ViewModels;
+using TransactLy.Models;
+using TransactLy.Models.ViewModels;
 
-namespace TransactLy.Web.Controllers
+namespace TransactLy.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly ILogger<HomeController> _logger;
+
+        public HomeController(ILogger<HomeController> logger)
+        {
+            _logger = logger;
+        }
+
         public IActionResult Index()
         {
-            return View();
-        }
-
-        public IActionResult About()
-        {
-            ViewData["Message"] = "Transactly. Your best friend when managing your business";
-            ViewData["Enterprise"] = "BitCompy";
-
-            return View();
-        }
-
-        public IActionResult Contact()
-        {
-            ViewData["Message"] = "Your contact page.";
-
             return View();
         }
 
