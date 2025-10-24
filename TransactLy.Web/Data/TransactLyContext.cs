@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using TransactLy.Web.Models;
 
-namespace TransactLy.Data
+namespace TransactLy.Web.Data
 {
     public class TransactLyContext : DbContext
     {
@@ -16,6 +16,6 @@ namespace TransactLy.Data
 
         public DbSet<Department> Department { get; set; } = default!;
         public DbSet<Seller> Seller { get; set; } = default!;
-        public DbSet<SallesRecord> SallesRecord { get; set; } = default!;
+        public DbSet<SalesRecord> SalesRecord { get; set; } = default!;
     }
 }

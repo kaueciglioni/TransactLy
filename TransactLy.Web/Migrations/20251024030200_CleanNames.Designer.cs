@@ -12,8 +12,8 @@ using TransactLy.Web.Data;
 namespace TransactLy.Web.Migrations
 {
     [DbContext(typeof(TransactLyContext))]
-    [Migration("20251024020826_OtherEntities")]
-    partial class OtherEntities
+    [Migration("20251024030200_CleanNames")]
+    partial class CleanNames
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -42,7 +42,7 @@ namespace TransactLy.Web.Migrations
                     b.ToTable("Department");
                 });
 
-            modelBuilder.Entity("TransactLy.Web.Models.SallesRecord", b =>
+            modelBuilder.Entity("TransactLy.Web.Models.SalesRecord", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -66,7 +66,7 @@ namespace TransactLy.Web.Migrations
 
                     b.HasIndex("SellerId");
 
-                    b.ToTable("SallesRecord");
+                    b.ToTable("SalesRecord");
                 });
 
             modelBuilder.Entity("TransactLy.Web.Models.Seller", b =>
@@ -101,7 +101,7 @@ namespace TransactLy.Web.Migrations
                     b.ToTable("Seller");
                 });
 
-            modelBuilder.Entity("TransactLy.Web.Models.SallesRecord", b =>
+            modelBuilder.Entity("TransactLy.Web.Models.SalesRecord", b =>
                 {
                     b.HasOne("TransactLy.Web.Models.Seller", "Seller")
                         .WithMany("Sales")
