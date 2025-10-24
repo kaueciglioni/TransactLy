@@ -17,7 +17,7 @@ namespace TransactLy.Controllers
         public DepartmentsController(TransactLyContext context)
         {
             _context = context;
-        }
+        }   
 
         // GET: Departments
         public async Task<IActionResult> Index()
