@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using TransactLy.Web.Data;
+using TransactLy.Web.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<TransactLyContext>(options =>
@@ -13,6 +14,7 @@ builder.Services.AddDbContext<TransactLyContext>(options =>
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<SeedingService>();
+builder.Services.AddScoped<SellerService>();
 
 var app = builder.Build();
 

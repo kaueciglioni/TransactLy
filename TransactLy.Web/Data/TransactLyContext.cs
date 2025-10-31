@@ -9,8 +9,7 @@ namespace TransactLy.Web.Data
 {
     public class TransactLyContext : DbContext
     {
-        public TransactLyContext (DbContextOptions<TransactLyContext> options)
-            : base(options)
+        public TransactLyContext (DbContextOptions<TransactLyContext> options): base(options)
         {
         }
 
