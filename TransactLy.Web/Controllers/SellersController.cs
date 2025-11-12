@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using TransactLy.Web.Services;
 using TransactLy.Web.Models;
+using TransactLy.Web.Models.ViewModels;
 
 namespace TransactLy.Web.Controllers
 {
@@ -8,10 +9,12 @@ namespace TransactLy.Web.Controllers
     {
 
         private readonly SellerService _sellerService;
+        private readonly DepartmentService _departmentService;
 
-        public SellersController(SellerService sellerService)
+        public SellersController(SellerService sellerService, DepartmentService departmentService   )
         {
             _sellerService = sellerService;
+            _departmentService = departmentService;
         }
 
         public IActionResult Index()
@@ -22,7 +25,9 @@ namespace TransactLy.Web.Controllers
 
         public IActionResult Create()
         {
-            return View();
+            var department = _departmentService.FindAll();
+            var viewModel = new SellerFormViewModel { Departments = department };
+            return View(viewModel);
         }
 
         [HttpPost]
