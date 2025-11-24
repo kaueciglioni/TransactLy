@@ -4,6 +4,8 @@ using TransactLy.Web.Models;
 using TransactLy.Web.Models.ViewModels;
 using TransactLy.Web.Services.Exceptions;
 using Microsoft.AspNetCore.Mvc.TagHelpers;
+using TransactLy.Models.ViewModels;
+using System.Diagnostics;
 
 namespace TransactLy.Web.Controllers
 {
@@ -44,13 +46,13 @@ namespace TransactLy.Web.Controllers
         {
             if (id == null)
             {
-                return NotFound();
+                return RedirectToAction(nameof(Error), new { message = "Id not found"});
             }
 
             var obj = _sellerService.FindById(id.Value);
             if (obj == null)
             {
-                return NotFound();
+                return RedirectToAction(nameof(Error), new { message = "Id not found"});
             }
             return View(obj);
         }
@@ -65,13 +67,13 @@ namespace TransactLy.Web.Controllers
         {
             if (id == null)
             {
-                return NotFound();
+                return RedirectToAction(nameof(Error), new { message = "Id not found"});
             }
 
             var obj = _sellerService.FindById(id);
             if (obj == null)
             {
-                return NotFound();
+                return RedirectToAction(nameof(Error), new { message = "Id not found"});
             }
             return View(obj);
         }
@@ -80,14 +82,14 @@ namespace TransactLy.Web.Controllers
         {
             if (id == null)
             {
-                return NotFound();
+                return RedirectToAction(nameof(Error), new { message = "Id not found"});
             }
 
             var obj = _sellerService.FindById(id.Value);
 
             if (obj == null)
             {
-                return NotFound();
+                return RedirectToAction(nameof(Error), new { message = "Id not found"});
             }
 
             List<Department> departments = _departmentService.FindAll();
@@ -102,21 +104,28 @@ namespace TransactLy.Web.Controllers
         {
             if (id != seller.Id)
             {
-                return BadRequest();
+                return RedirectToAction(nameof(Error), new { message = "Id mismatch" });
             }
             try
             {
                 _sellerService.Update(seller);
                 return RedirectToAction(nameof(Index));
             }
-            catch (NotFoundException ex)
+            catch (ApplicationException ex)
             {
-                return NotFound();
+                return RedirectToAction(nameof(Error), new { message = ex.Message });
             }
-            catch (DbConcurrencyException ex)
+        }
+
+        public IActionResult Error(string message)
+        {
+            var viewModel = new ErrorViewModel
             {
-                return BadRequest();
-            }
+                Message = message,
+                RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier
+            };
+
+            return View(viewModel);
         }
     }
 }
