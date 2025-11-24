@@ -1,6 +1,9 @@
 using Microsoft.EntityFrameworkCore;
 using TransactLy.Web.Data;
 using TransactLy.Web.Services;
+using System.Globalization;
+using Microsoft.AspNetCore.Localization;
+using Microsoft.AspNetCore.Builder;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<TransactLyContext>(options =>
@@ -23,6 +26,16 @@ if (app.Environment.IsDevelopment())
 {
     using (var scope = app.Services.CreateScope())
     {
+        var enUS = new CultureInfo("en-US");
+        var localization = new RequestLocalizationOptions
+        {
+            DefaultRequestCulture = new RequestCulture(enUS),
+            SupportedCultures = new List<CultureInfo> { enUS },
+            SupportedUICultures = new List<CultureInfo> { enUS }
+        };
+
+        app.UseRequestLocalization(localization);
+
         var services = scope.ServiceProvider;
         var seedingService = services.GetRequiredService<SeedingService>();
         seedingService.Seed();
