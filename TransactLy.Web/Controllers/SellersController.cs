@@ -38,6 +38,13 @@ namespace TransactLy.Web.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(Seller seller)
         {
+            if (!ModelState.IsValid)
+            {
+                var deparments = _departmentService.FindAll();
+                var viewModel = new SellerFormViewModel { Seller = seller, Departments = deparments }
+                return View(viewModel);
+            }
+
             _sellerService.Insert(seller);
             return RedirectToAction(nameof(Index));
         }
@@ -102,6 +109,12 @@ namespace TransactLy.Web.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Edit(int? id, Seller seller)
         {
+            if (!ModelState.IsValid)
+            {
+                var deparments = _departmentService.FindAll();
+                var viewModel = new SellerFormViewModel {  Seller = seller, Departments = deparments}
+                return View(viewModel);
+            }
             if (id != seller.Id)
             {
                 return RedirectToAction(nameof(Error), new { message = "Id mismatch" });
