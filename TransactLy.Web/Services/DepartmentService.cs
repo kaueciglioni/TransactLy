@@ -1,4 +1,5 @@
-﻿using TransactLy.Web.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using TransactLy.Web.Data;
 using TransactLy.Web.Models;
 
 namespace TransactLy.Web.Services
@@ -12,9 +13,9 @@ namespace TransactLy.Web.Services
             _context = context;
         }
 
-        public List<Department> FindAll()
+        public async Task<List<Department>> FindAllAsync()
         {
-            return _context.Department.OrderBy(x => x.Name).ToList();
+            return await _context.Department.OrderBy(x => x.Name).ToListAsync();
         }
     }
 }
