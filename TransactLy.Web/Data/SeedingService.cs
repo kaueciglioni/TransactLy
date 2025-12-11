@@ -27,7 +27,7 @@ namespace TransactLy.Web.Data
             Seller s1 = new Seller(1, "Kaue", "kaueciglioni@gmail.com", new DateTime(2003, 05, 02), 3400.00, d1);
             Seller s2 = new Seller(2, "Kaua", "kaua@gmail.com", new DateTime(2006, 05, 03), 1200, d2);
             Seller s3 = new Seller(3, "Kaio", "kaio@gmail.com", new DateTime(2006, 05, 03), 11000, d3);
-            Seller s4 = new Seller(4, "Martha Red", "martha@gmail.com", new DateTime(1993, 11, 30), 3000.0, d4);
+            Seller s4 = new Seller(4, "Luiza", "luiza@gmail.com", new DateTime(2005, 04, 19), 3000.0, d4);
             Seller s5 = new Seller(5, "Donald Blue", "donald@gmail.com", new DateTime(2000, 1, 9), 4000.0, d3);
             Seller s6 = new Seller(6, "Alex Pink", "bob@gmail.com", new DateTime(1997, 3, 4), 3000.0, d2);
             Seller s7 = new Seller(7, "Bob Brown", "bob@gmail.com", new DateTime(1998, 4, 21), 1000.0, d1);
@@ -64,15 +64,30 @@ namespace TransactLy.Web.Data
             SalesRecord r28 = new SalesRecord(28, new DateTime(2018, 10, 7), 4000.0, SaleStatus.Billed, s3);
             SalesRecord r29 = new SalesRecord(29, new DateTime(2018, 10, 23), 12000.0, SaleStatus.Billed, s5);
             SalesRecord r30 = new SalesRecord(30, new DateTime(2018, 10, 12), 5000.0, SaleStatus.Billed, s8);
+            SalesRecord r31 = new SalesRecord(31, new DateTime(2018, 10, 1), 12000.0, SaleStatus.Billed, s1);
+            SalesRecord r32 = new SalesRecord(32, new DateTime(2025, 10, 24), 6000.0, SaleStatus.Billed, s3);
+            SalesRecord r33 = new SalesRecord(33, new DateTime(2025, 10, 22), 8000.0, SaleStatus.Billed, s5);
+            SalesRecord r34 = new SalesRecord(34, new DateTime(2025, 10, 15), 8000.0, SaleStatus.Billed, s6);
+            SalesRecord r35 = new SalesRecord(35, new DateTime(2025, 10, 17), 9000.0, SaleStatus.Billed, s2);
+            SalesRecord r36 = new SalesRecord(36, new DateTime(2025, 10, 24), 4000.0, SaleStatus.Billed, s4);
+            SalesRecord r37 = new SalesRecord(37, new DateTime(2025, 10, 19), 11000.0, SaleStatus.Canceled, s2);
+            SalesRecord r38 = new SalesRecord(38, new DateTime(2025, 10, 12), 8000.0, SaleStatus.Billed, s5);
+            SalesRecord r39 = new SalesRecord(39, new DateTime(2025, 10, 31), 7000.0, SaleStatus.Billed, s3);
+            SalesRecord r40 = new SalesRecord(40, new DateTime(2025, 10, 6), 5000.0, SaleStatus.Billed, s4);
+            SalesRecord r41 = new SalesRecord(41, new DateTime(2025, 10, 13), 9000.0, SaleStatus.Pending, s7);
+            SalesRecord r42 = new SalesRecord(42, new DateTime(2025, 10, 7), 4000.0, SaleStatus.Billed, s3);
+            SalesRecord r43 = new SalesRecord(43, new DateTime(2025, 10, 23), 12000.0, SaleStatus.Billed, s5);
+            SalesRecord r44 = new SalesRecord(44, new DateTime(2025, 10, 12), 5000.0, SaleStatus.Billed, s8);
 
             _context.Department.AddRange(d1, d2, d3, d4);
 
             _context.Seller.AddRange(s1, s2, s3, s4, s5, s6);
 
             _context.SalesRecord.AddRange(
-                r1, r2, r3, r4, r5, r6, r7, r8, r9, r10,
-                r11, r12, r13, r14, r15, r16, r17, r18, r19, r20,
-                r21, r22, r23, r24, r25, r26, r27, r28, r29, r30
+                r1, r2, r3, r4, r5, r6, r7, r8, r9, r10,r11, r12,
+                r13, r14, r15, r16, r17, r18, r19, r20,r21, r22,
+                r23, r24, r25, r26, r27, r28, r29, r30, r31, r32,
+                r33, r34, r35, r36, r37, r38, r39, r40, r41, r42, r43, r44
             );
 
             _context.SaveChanges();
