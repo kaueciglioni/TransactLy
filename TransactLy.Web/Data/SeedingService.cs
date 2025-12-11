@@ -24,10 +24,10 @@ namespace TransactLy.Web.Data
             Department d3 = new Department(3, "Fashion");
             Department d4 = new Department(4, "Books");
 
-            Seller s1 = new Seller(1, "Kaue", "kaueciglioni@gmail.com", new DateTime(2003, 05, 02), 3400.00, d1);
-            Seller s2 = new Seller(2, "Kaua", "kaua@gmail.com", new DateTime(2006, 05, 03), 1200, d2);
-            Seller s3 = new Seller(3, "Kaio", "kaio@gmail.com", new DateTime(2006, 05, 03), 11000, d3);
-            Seller s4 = new Seller(4, "Luiza", "luiza@gmail.com", new DateTime(2005, 04, 19), 3000.0, d4);
+            Seller s1 = new Seller(1, "Kaue", "kaue@gmail.com", new DateTime(2002, 02, 02), 3400.00, d1);
+            Seller s2 = new Seller(2, "Kaua", "kaua@gmail.com", new DateTime(2002, 02, 03), 1200, d2);
+            Seller s3 = new Seller(3, "Kaio", "kaio@gmail.com", new DateTime(2002, 02, 03), 11000, d3);
+            Seller s4 = new Seller(4, "Luiza", "luiza@gmail.com", new DateTime(2002, 02, 19), 3000.0, d4);
             Seller s5 = new Seller(5, "Donald Blue", "donald@gmail.com", new DateTime(2000, 1, 9), 4000.0, d3);
             Seller s6 = new Seller(6, "Alex Pink", "bob@gmail.com", new DateTime(1997, 3, 4), 3000.0, d2);
             Seller s7 = new Seller(7, "Bob Brown", "bob@gmail.com", new DateTime(1998, 4, 21), 1000.0, d1);
